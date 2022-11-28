@@ -1,19 +1,17 @@
-
-
 <template>
-    <div class="main">
+    <div class="grande">
         <div class="container">
-        <ul v-if='arrCharacters'>
+            <div v-if="arrCard" class="row">
             <CardPage
-            v-for = "character in arrCharacters"
-            :key="character.title"
-            :imgUrl="character.poster"
-            :title="character.title"
-            :author="character.author"
-            :year="character.year"
-            />
-        </ul>
-        <div v-else>..LOADING..</div>
+                v-for = "card in arrCard"
+                :key="card.title"
+                :imgUrl="card.poster"
+                :title="card.title"
+                :author="card.author"
+                :year="card.year"
+                />
+            </div>
+            <div v-else> caricamento ...</div>
         </div>
     </div>
 </template>
@@ -25,7 +23,7 @@
     name: 'MainPage',
     data() {
         return {
-        arrCharacters: null,
+        arrCard: null,
         urlApi: 'https://flynn.boolean.careers/exercises/api/array/music',
         };
     },
@@ -33,7 +31,7 @@
         axios.get(this.urlApi)
         .then((axiosResponse) => {
             console.log(axiosResponse.data);
-            this.arrCharacters = axiosResponse.data.response;
+            this.arrCard = axiosResponse.data.response;
         });
     },
     components: {
@@ -42,18 +40,29 @@
 };
 </script>
 
-    <style lang="scss" scoped>
-    .main{
-    background-color:rgb(16, 31, 48);
-    padding-top: 4rem;
-    }
-    .container{
-    max-width: 1200px;
-    margin: 0 auto;
-    }
-    ul{
+<style lang="scss" scoped>
+
+body {
+    background-color:rgba(30,45,59,255) ;
+}
+
+.grande {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(30,45,59,255);
+    height: 100vh;
+}
+    .container{
+
+        background-color: rgba(30,45,59,255);
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
     }
+
+    
 </style>

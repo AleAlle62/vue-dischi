@@ -18,6 +18,7 @@ export default {
 }
     .incima{
     background-color: rgb(39, 59, 79);
-    height: 150px;
+    height: 100px;
+    border: 1px solid white;
     }
 </style>

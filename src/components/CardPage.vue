@@ -1,9 +1,12 @@
 <template>
+    <!-- creazione card  -->
     <div class="card">
         <div class="text-center">
+            <!-- immagine  -->
         <img :src="imgUrl" :alt="title" class="img-fluid" />
+        <!-- stampa titolo autore e anno  -->
         <h2 class="name">{{ title }}</h2>
-        <div>{{ author + genre }}</div>
+        <div>{{ author }}</div>
         <div>{{ year }}</div>
         </div>
     </div>
@@ -22,26 +25,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    img{
-    width:200px;
-    height: 200px;
-    }
-    .card{
-    flex: 1 1 15%;
-    background-color: rgb(39, 59, 79);
-    text-align: center;
-    padding-top:1rem;
-    padding-left:.5rem;
-    padding-right:.5rem;
-    padding-bottom: 4rem;
-    }
-    h2{
-    font-size: 1.2rem;
-    color: white;
-    text-transform: uppercase;
-    padding: .3rem;
-    }
-    .description{
-    color: gray;
+    .card {
+        height: 230px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(46,58,70,255);
+        text-align: center;
+        border: 1px solid white ;
+        color: white;
+        h2 {
+            font-size: 15px;
+        }
+        img {
+            height: 100px;
+        }
     }
 </style>
