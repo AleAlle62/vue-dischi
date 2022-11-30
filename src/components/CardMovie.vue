@@ -1,5 +1,4 @@
 <template>
-    <!-- creazione card  -->
     <div class="card">
         <div class="text-center">
             <!-- immagine  -->
@@ -14,18 +13,18 @@
 
 <script>
 export default {
-    name: "CardPage",
-    props: {
-    imgUrl: String,
-    title: String,
-    author: String,
-    year: String,
-    },
-};
+  name: "CardMovie",
+  props: {
+  imgUrl: String,
+  title: String,
+  author: String,
+  year: String,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-    .card {
+.card {
         height: 230px;
         width: 150px;
         display: flex;
@@ -35,6 +34,7 @@ export default {
         text-align: center;
         border: 1px solid white ;
         color: white;
+        border-radius: 10px;
         h2 {
             font-size: 15px;
         }

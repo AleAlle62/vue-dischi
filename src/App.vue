@@ -1,29 +1,43 @@
 <template>
   <div>
-    <!-- collegamento alle altre pagine  -->
-    <PageHeader/>
-    <MainPage/>
-    <FooterPage/>
+    <PageHeader
+      :genres-list="genresList"
+      @changedGenre="genreChange"
+    />
+    <PageMain
+      :genre-filter="genreFilter"
+      @genresReady="getGenresList"
+    />
   </div>
 </template>
 
 <script>
-// import di tutte le altre pagine 
-import PageHeader from '@/components/PageHeader.vue'
-import MainPage from '@/components/MainPage.vue'
-import FooterPage from '@/components/FooterPage.vue'
+import PageHeader from '@/components/PageHeader.vue';
+import PageMain from '@/components/PageMain.vue';
 
 export default {
-  // disposizione dei compontenti 
+  name: 'App',
   components: {
     PageHeader,
-    MainPage,
-    FooterPage,
+    PageMain,
   },
-}
+  data() {
+    return {
+      genresList: [],
+      genreFilter: 'all',
+    };
+  },
+  methods: {
+    getGenresList(genresList) {
+      this.genresList = genresList;
+    },
+    genreChange(genreFilter) {
+      this.genreFilter = genreFilter;
+    },
+  },
+};
 </script>
 
+<style lang="scss">
 
-<style lang = "scss">
-@import "~bootstrap/scss/bootstrap";
 </style>

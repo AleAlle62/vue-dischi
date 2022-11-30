@@ -1,4 +1,4 @@
-# vue-dischi
+# classe78-700-vue-cli-dischi
 
 ## Project setup
 ```

@@ -1,24 +1,57 @@
 <template>
-    <div class="incima">
-        <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png" alt="">
-    </div>
+    <header>
+        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="">
+        <label for="select-genres">
+        <select
+            id="select-genres"
+            v-model="genreFilter"
+            name="genre"
+            @change="genreChange"
+        >
+            <option value="all">
+            All genres
+            </option>
+            <option
+            v-for="genre in genresList"
+            :key="genre"
+            :value="genre"
+            >
+            {{ genre }}
+            </option>
+        </select>
+        </label>
+    </header>
 </template>
-
 
 <script>
 export default {
     name: 'PageHeader',
-}
+    props: {
+        genresList: Array,
+    },
+    data() {
+        return {
+        genreFilter: 'all',
+        };
+    },
+    methods: {
+        genreChange() {
+        this.$emit('changedGenre', this.genreFilter);
+        },
+    },
+};
 </script>
 
-<style lang = "scss" scoped>
-    img{
-    height: 100px;
-    padding: 1rem;
-}
-    .incima{
-    background-color: rgb(39, 59, 79);
-    height: 100px;
-    border: 1px solid white;
+<style lang="scss" scoped>
+
+header {
+    background-color: rgba(46,58,70,255);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    img {
+        height: 50px;
     }
+}
 </style>
